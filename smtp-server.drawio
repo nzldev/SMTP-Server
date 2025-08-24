@@ -1,9 +1,50 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" version="28.1.1">
-  <diagram name="Page-1" id="CrMnEpDbJRySdVq3vlhO">
-    <mxGraphModel>
+<mxfile host="app.diagrams.net">
+  <diagram name="SMTP Flow & Bounce" id="smtp-flow">
+    <mxGraphModel dx="1220" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        
+        <!-- Sender Client -->
+        <mxCell id="2" value="Sender Client (MUA)" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- SMTP Submission Server -->
+        <mxCell id="3" value="SMTP Submission Server (MSA)" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="160" width="180" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Recipient MX -->
+        <mxCell id="4" value="Recipient MX (Inbound MTA)" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="160" width="180" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Mailbox -->
+        <mxCell id="5" value="Recipient Mailbox (MDA)" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="160" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrows -->
+        <mxCell id="6" edge="1" source="2" target="3" style="endArrow=block;" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7" edge="1" source="3" target="4" style="endArrow=block;" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" edge="1" source="4" target="5" style="endArrow=block;" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Bounce Path -->
+        <mxCell id="9" edge="1" source="4" target="3" style="endArrow=block;dashed=1;strokeColor=#ff0000;" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="10" edge="1" source="3" target="2" style="endArrow=block;dashed=1;strokeColor=#ff0000;" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
